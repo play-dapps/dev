@@ -70,7 +70,7 @@ async function createUnitCards() {
 	let fighting = beings[3];
 	
 	for(let i = 0; i < creator.length; i++) {
-		console.log(creator[i].toNumber() + " " + honor[i].toNumber() + " " + fighting[i].toNumber());
+		console.log(creator[i] + " " + honor[i] + " " + fighting[i]);
 	}
 }
 
