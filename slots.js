@@ -39,7 +39,7 @@ window.addEventListener('load', async () => {
 let el = function(id){ return document.querySelector(id);};
 let address;
 let hubInstance;
-let forHonorInstance;
+let forHonorContract;
 let forHonorInstance;
 let bytes;
 let bytes0 = '000000000000000000000000000000000000000000000000002386f26fc10000';
