@@ -80,7 +80,7 @@ async function createUnitCards() {
 				<p class="card-text">${fighting[i]}</p>
 			</div>
 		</div>
-		`,
+		`;
 	}
 	el('#play').innerHTML = cards;
 }
