@@ -69,15 +69,15 @@ async function createUnitCards() {
 	let honor = beings[2];
 	let fighting = beings[3];
 	
-	let cards;
+	let cards ='';
 	for(let i = 0; i < creator.length; i++) {
 		cards+=
 		`
-		<div class="card bg-primary text-white">
-			<div class="card-body">Primary card
-				<p class="card-text">${creator[i]}</p>
-				<p class="card-text">${honor[i]}</p>
-				<p class="card-text">${fighting[i]}</p>
+		<div class="card bg-primary text-white" style="width:200px">
+			<div class="card-body">Being
+				<p class="card-text">Creator: ${creator[i]}</p>
+				<p class="card-text">Honor: ${honor[i]}</p>
+				<p class="card-text">Fighting: ${fighting[i]}</p>
 			</div>
 		</div>
 		`;
