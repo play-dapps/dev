@@ -69,9 +69,20 @@ async function createUnitCards() {
 	let honor = beings[2];
 	let fighting = beings[3];
 	
+	let cards;
 	for(let i = 0; i < creator.length; i++) {
-		console.log(creator[i] + " " + honor[i] + " " + fighting[i]);
+		cards+=
+		`
+		<div class="card bg-primary text-white">
+			<div class="card-body">Primary card
+				<p class="card-text">${creator[i]}</p>
+				<p class="card-text">${honor[i]}</p>
+				<p class="card-text">${fighting[i]}</p>
+			</div>
+		</div>
+		`,
 	}
+	el('#play').innerHTML = cards;
 }
 
 async function checkButtons() {
