@@ -82,7 +82,7 @@ async function createUnitCards() {
 		</div>
 		`;
 	}
-	el('#play').innerHTML = cards;
+	el('#allbeings').innerHTML = cards;
 }
 
 async function checkButtons() {
