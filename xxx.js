@@ -57,8 +57,6 @@ let result1;
 let result2;
 let result3;
 
-let account;
-
 function gameLoop() {
 	createUnitCards();
 	checkButtons();
@@ -68,10 +66,9 @@ function gameLoop() {
 
 async function createUnitCards() {
 	let accounts = await promisify(cb => web3.eth.getAccounts(cb));
-	account = accounts[0];
 	
 	let startId = 0;
-	const beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
+	let beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
 	//let firstAliveId = beings[0];
 	let ids = beings[1];
 	let creator = beings[2];
@@ -94,7 +91,7 @@ async function createUnitCards() {
 		</div>
 		`;
 		
-		if(creator[i] = account) {
+		if(creator[i] = accounts[0]) {
 			mycards += cardString;
 		} else {
 			othercards += cardString;
@@ -134,13 +131,13 @@ function onTxSent(result) {
 
 async function checkButtons() {
 	if(txHash != null) {
-		const mined = await isMined(txHash);
+		let mined = await isMined(txHash);
 		if(!mined) {
 			return;
 		}
 	}
-	console.log(account);
-	let creation = await promisify(cb => gameInstance.creations(account, cb));
+	let accounts = await promisify(cb => web3.eth.getAccounts(cb));
+	let creation = await promisify(cb => gameInstance.creations(accounts[0], cb));
 	if(creation[2] && !finished) {
 		el('#play').hidden = true;
 	} else {
@@ -149,9 +146,9 @@ async function checkButtons() {
 }
 
 async function isMined() {
-	const txInfo = await promisify(cb => web3.eth.getTransaction(txHash, cb));
+	let txInfo = await promisify(cb => web3.eth.getTransaction(txHash, cb));
 	if (txInfo != null && txInfo.blockNumber != null) {
-		const blockNumber = await promisify(cb => web3.eth.getBlockNumber(cb));
+		let blockNumber = await promisify(cb => web3.eth.getBlockNumber(cb));
 		el('#result').innerHTML  = "Waiting for next block ...";
 		if(blockNumber > txInfo.blockNumber) {
 			finished = false;
@@ -167,7 +164,7 @@ async function spin() {
 	el('#spin').disabled = true;
 	if(index == 0) {
 		finished = false;
-		const spin = await promisify(cb => gameInstance.mySpin(cb));
+		let spin = await promisify(cb => gameInstance.mySpin(cb));
 		numberOfBets = spin[0];
 		reel1 = spin[1];
 		reel2 = spin[2];
@@ -241,12 +238,12 @@ function calcWin() {
 }
 
 async function populateField() {
-	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
-	const playerBalance = await promisify(cb => p3xInstance.myBalance(cb));
+	let accounts = await promisify(cb => web3.eth.getAccounts(cb));
+	let playerBalance = await promisify(cb => p3xInstance.myBalance(cb));
 	
 	el('#playerWallet').innerHTML = web3.fromWei(playerBalance).toFixed(2) + ' P3X';
 		
-	const player = await promisify(cb => hubInstance.players(accounts[0], cb));
+	let player = await promisify(cb => hubInstance.players(accounts[0], cb));
 	
 	el('#playerBank').innerHTML = web3.fromWei(player[0]).toFixed(2) + ' P3X';
 	if(player[0] > 0) {
@@ -257,7 +254,7 @@ async function populateField() {
 	
 	el('#contribution').innerHTML = web3.fromWei(player[1]).toFixed(2) + ' P3X';
 	
-	const totalFundingBalances = await promisify(cb => hubInstance.totalFundingBalances(cb));
+	let totalFundingBalances = await promisify(cb => hubInstance.totalFundingBalances(cb));
 	
 	el('#fundedtotal').innerHTML = web3.fromWei(totalFundingBalances).toFixed(2) + ' P3X';
 	
@@ -267,11 +264,11 @@ async function populateField() {
 		el('#withdrawfundsbutton').hidden = true;
 	}
 	
-	const totalTokenBalance = await promisify(cb => hubInstance.totalSupply(cb));
+	let totalTokenBalance = await promisify(cb => hubInstance.totalSupply(cb));
 	
 	el('#tokenstotal').innerHTML = web3.fromWei(totalTokenBalance).toFixed(2);
 	
-	const shareholder = await promisify(cb => hubInstance.shareholders(accounts[0], cb));
+	let shareholder = await promisify(cb => hubInstance.shareholders(accounts[0], cb));
 	
 	el('#mytokens').innerHTML = web3.fromWei(shareholder[0]).toFixed(2);
 	
@@ -285,11 +282,11 @@ async function populateField() {
 }
 
 async function getLatestWins() {
-	const events = await promisify(cb => gameInstance.Win({}, { fromBlock: 'latest' - 10000, toBlock: 'latest' }).get(cb));
+	let events = await promisify(cb => gameInstance.Win({}, { fromBlock: 'latest' - 10000, toBlock: 'latest' }).get(cb));
 	for(let i = 0; i < events.length && i < 7; i++) {
-		const theEvent = events[events.length - 1 - i].args;
-		const playerAddress = theEvent.player;
-		const player = await promisify(cb => hubInstance.players(playerAddress, cb));
+		let theEvent = events[events.length - 1 - i].args;
+		let playerAddress = theEvent.player;
+		let player = await promisify(cb => hubInstance.players(playerAddress, cb));
 		el('#w' + i).innerHTML = playerAddress.substring(0, 10);
 		el('#a' + i).innerHTML = web3.fromWei(theEvent.amount).toFixed(2) + ' P3X';
 		
@@ -309,7 +306,7 @@ function enableFundWithdraw() {
 	}
 }
 
-const promisify = (inner) =>
+let promisify = (inner) =>
   new Promise((resolve, reject) =>
     inner((err, res) => {
       if (err) { reject(err) }
