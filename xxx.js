@@ -121,6 +121,15 @@ function playBank() {
 	})
 }
 
+function validate() {
+	gameInstance.resolveCreation(function(error, result){
+		if(!error) {
+			el('#validate').hidden = true;
+			el('#result').innerHTML  = "Waking up beings...";
+		}
+	})
+}
+
 function onTxSent(result) {
 	el('#result').innerHTML  = "Waiting for transaction ...";
 	txHash = result;
@@ -138,6 +147,8 @@ async function checkButtons() {
 	}
 	let accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	let creation = await promisify(cb => gameInstance.creations(accounts[0], cb));
+	console.log(creation[2]);
+	console.log(finished);
 	if(creation[2] && !finished) {
 		el('#play').hidden = true;
 	} else {
@@ -160,28 +171,6 @@ async function isMined() {
 	return false;
 }
 
-async function spin() {
-	el('#spin').disabled = true;
-	if(index == 0) {
-		finished = false;
-		let spin = await promisify(cb => gameInstance.mySpin(cb));
-		numberOfBets = spin[0];
-		reel1 = spin[1];
-		reel2 = spin[2];
-		reel3 = spin[3];
-	}
-
-	el('#result').innerHTML  = "";
-	
-	result1 = reel1[index].toNumber();
-	result2 = reel2[index].toNumber();
-	result3 = reel3[index].toNumber();
-	
-	index++;
-	
-	startSpin();
-}
-
 function withdraw() {
 	hubInstance.withdrawBalance(function(error, result){
 	})
@@ -194,15 +183,6 @@ function withdrawDividends() {
 
 function withdrawFunds() {
 	hubInstance.withdrawFundingBalancePartial(web3.toWei(el('#fund').value, 'ether'), function(error, result){
-	})
-}
-
-function validate() {
-	gameInstance.resolveSpin(function(error, result){
-		if(!error) {
-			el('#validate').hidden = true;
-			el('#result').innerHTML  = "Validating...";
-		}
 	})
 }
 
