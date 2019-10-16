@@ -1,0 +1,12 @@
+#main {
+  background-color: rgb(14, 66, 103);
+}
+
+#main .content:nth-child(1) {
+  text-align: center;
+}
+
+#main .content > div {
+  padding-top: 165px;
+  margin: 0 auto;
+}
