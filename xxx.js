@@ -65,7 +65,7 @@ async function createUnitCards() {
 	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	
 	let startId = 0;
-	const beings = await promisify(cb => forHonorInstance.getAliveBeings(startId, cb));
+	const beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
 	//let firstAliveId = beings[0];
 	let ids = beings[1];
 	let creator = beings[2];
