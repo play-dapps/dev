@@ -9,46 +9,16 @@
     <meta name="author" content="dav">
     <link rel="icon" type="img/ico" href="img/icon.ico">
 
-    <title>Slots</title>
+    <title>XXX</title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="styles/slotmachine.min.css" rel="stylesheet">
-    <script src="slotmachine.min.js"></script>
-    <script src="slots.js"></script>
+	<link href="styles/xxx.css" rel="stylesheet">
+    <script src="xxx.js"></script>
 </head>
 
-<body id="casino" style="background-color: #0C293A;">
+<body id="main" style="background-color: #0C293A;">
     <div class="container-fluid">
         <div class="row" style="margin:25px;margin-top:50px;">
-            <div class="col" style="padding-top:5px">
-                <div id="casino1" class="slotMachine">
-                    <div class="slot slot0"></div>
-                    <div class="slot slot1"></div>
-                    <div class="slot slot2"></div>
-                    <div class="slot slot3"></div>
-                    <div class="slot slot4"></div>
-                </div>
-            </div>
-            <div class="col" style="padding-top:5px">
-                <div id="casino2" class="slotMachine">
-                    <div class="slot slot0"></div>
-                    <div class="slot slot1"></div>
-                    <div class="slot slot2"></div>
-                    <div class="slot slot3"></div>
-                    <div class="slot slot4"></div>
-                </div>
-            </div>
-            <div class="col" style="padding-top:5px">
-                <div id="casino3" class="slotMachine">
-                    <div class="slot slot0"></div>
-                    <div class="slot slot1"></div>
-                    <div class="slot slot2"></div>
-                    <div class="slot slot3"></div>
-                    <div class="slot slot4"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin:25px">
             <div class="col-12 col-md-4" style="padding-top:5px">
                 <h3>Player Wallet</h3>
                 <p id="playerWallet"></p>
@@ -63,34 +33,20 @@
                     <div class="col-12">
 						<div class="row">
 							<div class="col-12">
-								<button onclick="play()" id="play" type="button" class="btn btn-info btn-lg" style="width:100%;font-size: 30px;" hidden>P L A Y !</button>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<button onclick="spin()" id="spin" type="button" class="btn btn-info btn-lg" style="width:100%;font-size: 30px;" hidden>S P I N !</button>
+								<button onclick="play()" id="play" type="button" class="btn btn-info btn-lg" style="width:100%;font-size: 30px;">C R E A T E !</button>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-12" style="padding-top:5px">
-								<button id="validate" onclick="validate()" type="button" class="btn btn-info btn-lg" hidden style="width:100%">Validate</button>
+								<button id="validate" onclick="validate()" type="button" class="btn btn-info btn-lg" hidden style="width:100%"></button>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-6" style="padding-top:5px">
-								<h5>Games:</h5>
+								<h5>Beings:</h5>
 							</div>
 							<div class="col-6" style="padding-top:5px">
-								<input type="number" name="games" id="games" min="1" max="10" value="1" style="background-color: rgb(14, 66, 103)">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6" style="padding-top:5px">
-								<h5>Bet size:</h5>
-							</div>
-							<div class="col-6" style="padding-top:5px">
-								<label class="radio-inline"><input type="radio" name="size" id="dotfive">0.5 P3X</label>
-								<label class="radio-inline"><input type="radio" name="size" id="one" checked>1 P3X</label>
+								<input type="number" name="games" id="games" min="1" max="32" value="1" style="background-color: rgb(14, 66, 103)">
 							</div>
 						</div>
 						<div class="row">
@@ -111,321 +67,36 @@
             </div>
         </div>
         <div class="row" style="margin:25px">
-            <div class="col-12 col-lg-6" style="padding-top:5px; padding-bottom:5px">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Pay Table</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <h3>Combination</h3>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <h3>Multiplier</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot0_s"></div>
-                            <div class="payoutInner slot0_s"></div>
-                            <div class="payoutInner slot0_s"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x20</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot1_s"></div>
-                            <div class="payoutInner slot1_s"></div>
-                            <div class="payoutInner slot1_s"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x7</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                        <div class="payoutInner slot2_s"></div>
-						<div class="payoutInner slot2_s"></div>
-						<div class="payoutInner slot2_s"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x7</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot3_s"></div>
-                            <div class="payoutInner slot3_s"></div>
-                            <div class="payoutInner slot3_s"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x7</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot4_s"></div>
-                            <div class="payoutInner slot4_s"></div>
-                            <div class="payoutInner slot4_s"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x7</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot0_s"></div>
-                            <div class="payoutInner slot0_s"></div>
-                            <div class="payoutInner blank"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x2 (any order)</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div class="payoutInner slot0_s"></div>
-                            <div class="payoutInner blank"></div>
-                            <div class="payoutInner blank"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6" style=";">
-                        <p>x1 (any order)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6" style="padding-top:5px;padding-bottom:5px">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Last Wins</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <h3>Spin</h3>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <h3>Win</h3>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <h3>Player</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w0r1" class="payoutInner blank"></div>
-                            <div id="w0r2" class="payoutInner blank"></div>
-                            <div id="w0r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a0">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w0">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w1r1" class="payoutInner blank"></div>
-                            <div id="w1r2" class="payoutInner blank"></div>
-                            <div id="w1r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a1">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w1">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w2r1" class="payoutInner blank"></div>
-                            <div id="w2r2" class="payoutInner blank"></div>
-                            <div id="w2r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a2">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w2">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w3r1" class="payoutInner blank"></div>
-                            <div id="w3r2" class="payoutInner blank"></div>
-                            <div id="w3r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a3">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w3">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w4r1" class="payoutInner blank"></div>
-                            <div id="w4r2" class="payoutInner blank"></div>
-                            <div id="w4r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a4">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w4">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w5r1" class="payoutInner blank"></div>
-                            <div id="w5r2" class="payoutInner blank"></div>
-                            <div id="w5r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a5">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w5">---</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="payoutOuter">
-                            <div id="w6r1" class="payoutInner blank"></div>
-                            <div id="w6r2" class="payoutInner blank"></div>
-                            <div id="w6r3" class="payoutInner blank"></div>
-                        </div>
-                    </div>
-					<div class="col-12 col-sm-3">
-                        <p id="a6">---</p>
-                    </div>
-                    <div class="col-12 col-sm-3">
-                        <p id="w6">---</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin:25px">
-            <div class="col-12 col-lg-6" style="padding-top:5px;padding-bottom:10px">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Bankroll</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12" style="padding-bottom:10px">
-                        <div class="input-group">
-                            <input id="fund" type="number" step="0.1" oninput="enableFundWithdraw()" class="form-control" placeholder="Enter Amount">
-                            <div class="input-group-append" id="fundgroup">
-								<button id="withdrawfundsbutton" onclick="withdrawFunds()" type="button" class="btn btn-success" disabled hidden">Withdraw</button>
-                                <button id="fundbutton" onclick="fund()" type="button" class="btn btn-info" disabled>Fund</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				<div class="row">
-                    <div class="col-12 col-sm-6">
-                       <h4>Total Funding</h4>
-					   <p id="fundedtotal"></p>
-                    </div>
-					<div class="col-12 col-sm-6">
-                      <h4>Your contribution</h4>
-					   <p id="contribution"></p>
-                    </div>
-                </div>
-            </div>
-			<div class="col-12 col-lg-6" style="padding-top:5px;padding-bottom:10px">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Dividends</h2>
-                    </div>
-                </div>
-				<div class="row">
-                    <div class="col-12 col-sm-4">
-                       <h4>Total Tokens</h4>
-					   <p id="tokenstotal"></p>
-                    </div>
-					<div class="col-12 col-sm-4">
-                      <h4>Your Tokens</h4>
-					   <p id="mytokens"></p>
-                    </div>
-					<div class="col-12 col-sm-4">
-                      <h4>Your Dividends</h4>
-					   <p id="mydividends"></p>
-					   <button id="withdrawdividendsbutton" onclick="withdrawDividends()" type="button" class="btn btn-info btn-lg" hidden>Withdraw</button>
-                    </div>
-                </div>
-            </div>
+			<div class="col-12 col-lg-6" style="padding-top:5px; padding-bottom:5px">
+				<table class="table table-sm table-striped table-dark">
+				  <thead>
+					<tr>
+					  <th scope="col">ID</th>
+					  <th scope="col">Creator</th>
+					  <th scope="col">Honor</th>
+					  <th scope="col">Fighting</th>
+					</tr>
+				  </thead>
+				  <tbody id="mybeings">
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-12 col-lg-6" style="padding-top:5px; padding-bottom:5px">
+				<table class="table table-sm table-striped table-dark">
+				  <thead>
+					<tr>
+					  <th scope="col">ID</th>
+					  <th scope="col">Creator</th>
+					  <th scope="col">Honor</th>
+					  <th scope="col">Fighting</th>
+					</tr>
+				  </thead>
+				  <tbody id="otherbeings">
+				  </tbody>
+				</table>
+			</div>
         </div>
     </div>
-    <script>
-        const casino1 = document.querySelector('#casino1');
-        const casino2 = document.querySelector('#casino2');
-        const casino3 = document.querySelector('#casino3');
-        const mCasino1 = new SlotMachine(casino1, {
-            active: 0,
-            delay: 500,
-            inViewport: false,
-            randomize() {
-                return result1;
-            }
-        });
-        const mCasino2 = new SlotMachine(casino2, {
-            active: 1,
-            delay: 500,
-            inViewport: false,
-            randomize() {
-                return result2;
-            }
-        });
-        const mCasino3 = new SlotMachine(casino3, {
-            active: 2,
-            delay: 500,
-            inViewport: false,
-            randomize() {
-                return result3;
-            },
-			onComplete() {
-				calcWin();
-				el('#spin').disabled = false;
-			}
-        });
-
-        function startSpin() {
-            mCasino1.shuffle(3);
-            mCasino2.shuffle(5);
-            mCasino3.shuffle(7);
-        }
-    </script>
 </body>
 
 </html>
