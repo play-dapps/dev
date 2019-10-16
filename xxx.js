@@ -61,6 +61,12 @@ function gameLoop() {
 	createUnitCards();
 }
 
+function gameLoop() {
+	checkButtons();
+	populateField();
+	getLatestWins();
+}
+
 async function createUnitCards() {
 	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	
@@ -134,8 +140,8 @@ async function checkButtons() {
 		}
 	}
 	
-	const hasActiveSpin = await promisify(cb => gameInstance.hasActiveSpin(cb));
-	if(hasActiveSpin && !finished) {
+	let hasActiveCreation = await promisify(cb => gameInstance.creations(account, cb));
+	if(hasActiveSpin.open && !finished) {
 		el('#play').hidden = true;
 		el('#spin').hidden = false;
 	} else {
