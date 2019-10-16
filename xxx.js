@@ -107,7 +107,7 @@ function play() {
 }
 
 function playWallet() {
-	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), bytes + bytesOne, function(error, result){
+	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), '0x' + bytes + bytesOne, function(error, result){
 		if(!error) {
 			onTxSent(result);
 		}
