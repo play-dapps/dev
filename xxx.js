@@ -57,7 +57,7 @@ let result1;
 let result2;
 let result3;
 
-let account;
+let accounts;
 
 function gameLoop() {
 	checkButtons();
@@ -68,7 +68,6 @@ function gameLoop() {
 
 async function createUnitCards() {
 	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
-	account = accounts[0];
 	
 	let startId = 0;
 	const beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
@@ -94,7 +93,7 @@ async function createUnitCards() {
 		</div>
 		`;
 		
-		if(creator[i] = account) {
+		if(creator[i] = accounts[0]) {
 			mycards += cardString;
 		} else {
 			othercards += cardString;
@@ -140,7 +139,7 @@ async function checkButtons() {
 		}
 	}
 	
-	let creation = await promisify(cb => gameInstance.creations(account, cb));
+	let creation = await promisify(cb => gameInstance.creations(accounts[0], cb));
 	if(creation[2] && !finished) {
 		el('#play').hidden = true;
 	} else {
