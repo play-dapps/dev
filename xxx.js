@@ -63,7 +63,7 @@ function gameLoop() {
 
 function gameLoop() {
 	checkButtons();
-	populateField();
+	//populateField();
 	getLatestWins();
 }
 
