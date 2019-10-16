@@ -80,15 +80,12 @@ async function createUnitCards() {
 	for(let i = 0; i < creator.length; i++) {
 		let cardString =
 		`
-		<div class="column">
-			<div class="card bg-primary text-white" style="width:200px">
-				<div class="card-body">Being
-					<p class="card-text">Creator: ${creator[i]}</p>
-					<p class="card-text">Honor: ${honor[i]}</p>
-					<p class="card-text">Fighting: ${fighting[i]}</p>
-				</div>
-			</div>
-		</div>
+		<tr>
+			<th scope="row">${ids[i]}</th>
+			<td>${creator[i]}</td>
+			<td>${honor[i]}</td>
+			<td>${fighting[i]}</td>
+		</tr>
 		`;
 		
 		if(creator[i] = accounts[0]) {
