@@ -134,6 +134,13 @@ function fight() {
 	})
 }
 
+function resolveBattle() {
+	gameInstance.resolveBattle(el('#battleid').value, function(error, result){
+		if(!error) {
+		}
+	})
+}
+
 function onTxSent(result) {
 	el('#result').innerHTML  = "Waiting for transaction ...";
 	txHash = result;
