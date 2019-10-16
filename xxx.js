@@ -88,14 +88,14 @@ async function createUnitCards() {
 		</tr>
 		`;
 		
-		if(creator[i] = accounts[0]) {
+		if(creator[i] == accounts[0]) {
 			mycards += cardString;
 		} else {
 			othercards += cardString;
 		}
 	}
-	el('#otherbeings').innerHTML = othercards;
 	el('#mybeings').innerHTML = mycards;
+	el('#otherbeings').innerHTML = othercards;
 }
 
 function play() {
