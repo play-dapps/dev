@@ -63,8 +63,9 @@ function gameLoop() {
 
 function gameLoop() {
 	checkButtons();
+	createUnitCards();
 	//populateField();
-	getLatestWins();
+	//getLatestWins();
 }
 
 async function createUnitCards() {
