@@ -60,14 +60,14 @@ let result3;
 let accounts;
 
 function gameLoop() {
-	checkButtons();
 	createUnitCards();
+	checkButtons();
 	//populateField();
 	//getLatestWins();
 }
 
 async function createUnitCards() {
-	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
+	accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	
 	let startId = 0;
 	const beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
