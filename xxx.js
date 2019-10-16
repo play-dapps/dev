@@ -13,7 +13,7 @@ window.addEventListener('load', async () => {
 				//setup('', '', '');
 			//	break;
 			case "3":
-				setup('0x12618e2653f6606763e4d9f92D2F7777B5c2bc0F', '0xF172F9c06BdcF82524bc972FdCd1eF3a78726c86', '0xCD45A142d109BBC8b22Ff6028614027D1dB4E32F', '0xCD45A142d109BBC8b22Ff6028614027D1dB4E32F');
+				setup('0x12618e2653f6606763e4d9f92D2F7777B5c2bc0F', '0xF172F9c06BdcF82524bc972FdCd1eF3a78726c86', '0xCD45A142d109BBC8b22Ff6028614027D1dB4E32F', '000000000000000000000000F172F9c06BdcF82524bc972FdCd1eF3a78726c8600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000020');
 				break;																																																																							   											
 			default:																																																																							   										
 				alert('Switch to Ropsten to play XXX!');
@@ -106,7 +106,7 @@ function play() {
 }
 
 function playWallet() {
-	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), '0x00', function(error, result){
+	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), bytes +'0', function(error, result){
 		if(!error) {
 			onTxSent(result);
 		}
