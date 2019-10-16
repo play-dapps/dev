@@ -322,7 +322,7 @@ const promisify = (inner) =>
     })
   );
 
-function setup(hubAddress, slotsAddress, p3xAddress, data) {
+async function setup(hubAddress, slotsAddress, p3xAddress, data) {
 	bytes = data;
 	
 	address = hubAddress;
