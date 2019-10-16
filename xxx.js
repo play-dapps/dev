@@ -143,7 +143,7 @@ async function checkButtons() {
 	}
 	
 	let hasActiveCreation = await promisify(cb => gameInstance.creations(account, cb));
-	if(hasActiveSpin.open && !finished) {
+	if(hasActiveCreation.open && !finished) {
 		el('#play').hidden = true;
 		el('#spin').hidden = false;
 	} else {
