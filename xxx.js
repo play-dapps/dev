@@ -149,6 +149,7 @@ async function checkButtons() {
 	let creation = await promisify(cb => gameInstance.creations(accounts[0], cb));
 	if(creation[2] && !finished) {
 		el('#play').hidden = true;
+		el('#validate').text = "Wake up " + creation[0] + " beings";
 		el('#validate').hidden = false;
 	} else {
 		el('#play').hidden = false;
