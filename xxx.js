@@ -147,12 +147,12 @@ async function checkButtons() {
 	}
 	let accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	let creation = await promisify(cb => gameInstance.creations(accounts[0], cb));
-	console.log(creation[2]);
-	console.log(finished);
 	if(creation[2] && !finished) {
 		el('#play').hidden = true;
+		el('#validate').hidden = false;
 	} else {
 		el('#play').hidden = false;
+		el('#validate').hidden = true;
 	}
 }
 
