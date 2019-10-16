@@ -44,6 +44,7 @@ let gameInstance;
 let p3xContract;
 let p3xInstance;
 let bytes;
+let bytesOne = '0000000000000000000000000000000000000000000000000de0b6b3a7640000';
 
 let txHash;
 
@@ -106,7 +107,7 @@ function play() {
 }
 
 function playWallet() {
-	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), bytes +'0', function(error, result){
+	p3xInstance.transfer(address, web3.toWei(el('#games').value, 'ether'), bytes + bytesOne, function(error, result){
 		if(!error) {
 			onTxSent(result);
 		}
