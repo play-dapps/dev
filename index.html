@@ -9,20 +9,84 @@
     <meta name="author" content="dav">
     <link rel="icon" type="img/ico" href="img/icon.ico">
 
-    <title>ForHonor</title>
+    <title>XXX</title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="forhonor.js"></script>
+    <script src="xxx.js"></script>
 </head>
 
 <body style="background-color: #0C293A;">
     <div class="container-fluid">
-		<div class="row" id="player">
-		</div>
-		<div class="row" id="mybeings">
-		</div>
-		<div class="row" id="otherbeings">
-		</div>
+        <div class="row" style="margin:25px">
+            <div class="col-12 col-md-4" style="padding-top:5px">
+                <h3>Player Wallet</h3>
+                <p id="playerWallet"></p>
+			</div>
+			<div class="col-12 col-md-4" style="padding-top:5px;padding-bottom:5px">
+				<div class="row">
+                    <div class="col-12">
+						<div class="row">
+							<div class="col-12">
+								<button onclick="play()" id="play" type="button" class="btn btn-info btn-lg" style="width:100%;font-size: 30px;" hidden>P L A Y !</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<button onclick="spin()" id="spin" type="button" class="btn btn-info btn-lg" style="width:100%;font-size: 30px;" hidden>S P I N !</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12" style="padding-top:5px">
+								<button id="validate" onclick="validate()" type="button" class="btn btn-info btn-lg" hidden style="width:100%">Validate</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6" style="padding-top:5px">
+								<h5>Games:</h5>
+							</div>
+							<div class="col-6" style="padding-top:5px">
+								<input type="number" name="games" id="games" min="1" max="10" value="1" style="background-color: rgb(14, 66, 103)">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12" style="padding-top:5px">
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="vaultSwitch">
+									<label class="custom-control-label" for="vaultSwitch">Play Using Vault Balance</label>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4" style="padding-top:5px">
+                <h3>Player Vault</h3>
+                <p id="playerBank"></p>
+                <button id="withdraw" onclick="withdraw()" type="button" class="btn btn-info btn-lg" hidden>Withdraw</button>
+            </div>
+        </div>
+        <div class="row" style="margin:25px">
+            <div class="col-12 col-lg-6" style="padding-top:5px; padding-bottom:5px">
+            </div>
+            <div class="col-12 col-lg-6" style="padding-top:5px;padding-bottom:5px"> 
+            </div>
+        </div>
+        <div class="row" style="margin:25px">
+			<div class="col-12 col-lg-6" style="padding-top:5px;padding-bottom:10px">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Dividends</h2>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="col-12 col-sm-4">
+                      <h4>Your Dividends</h4>
+					   <p id="mydividends"></p>
+					   <button id="withdrawdividendsbutton" onclick="withdrawDividends()" type="button" class="btn btn-info btn-lg" hidden>Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
