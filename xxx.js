@@ -127,6 +127,13 @@ function validate() {
 	})
 }
 
+function fight() {
+	gameInstance.createBattle(el('#attackerids').value.split(','), el('#defenderids').value.split(','), function(error, result){
+		if(!error) {
+		}
+	})
+}
+
 function onTxSent(result) {
 	el('#result').innerHTML  = "Waiting for transaction ...";
 	txHash = result;
