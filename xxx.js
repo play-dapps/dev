@@ -57,6 +57,8 @@ let result1;
 let result2;
 let result3;
 
+let account;
+
 function gameLoop() {
 	createUnitCards();
 }
@@ -69,7 +71,6 @@ function gameLoop() {
 }
 
 async function createUnitCards() {
-	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
 	
 	let startId = 0;
 	const beings = await promisify(cb => gameInstance.getAliveBeings(startId, cb));
@@ -95,7 +96,7 @@ async function createUnitCards() {
 		</div>
 		`;
 		
-		if(creator[i] = accounts[0]) {
+		if(creator[i] = account) {
 			mycards += cardString;
 		} else {
 			othercards += cardString;
@@ -333,4 +334,8 @@ function setup(hubAddress, slotsAddress, p3xAddress, data) {
 	
 	gameContract = web3.eth.contract([ { "constant": true, "inputs": [], "name": "beingsAlive", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalDividendPoints", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "beingsDied", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "value", "type": "uint256" } ], "name": "playWithBalance", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "beings", "outputs": [ { "name": "creator", "type": "address" }, { "name": "honor", "type": "uint256" }, { "name": "alive", "type": "bool" }, { "name": "fighting", "type": "bool" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "address" } ], "name": "creations", "outputs": [ { "name": "numberOfBeings", "type": "uint256" }, { "name": "creationBlock", "type": "uint256" }, { "name": "open", "type": "bool" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "openBattles", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "COST_PER_BEING", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "resolveCreation", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "totalHonor", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "totalRefunds", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "battles", "outputs": [ { "name": "numberOfFights", "type": "uint256" }, { "name": "creationBlock", "type": "uint256" }, { "name": "open", "type": "bool" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "attackerIds", "type": "uint256[]" }, { "name": "defenderIds", "type": "uint256[]" } ], "name": "createBattle", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "battlesCreated", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "fightsCreated", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "playerAddress", "type": "address" }, { "name": "value", "type": "uint256" }, { "name": "gameData", "type": "bytes" } ], "name": "play", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "address" } ], "name": "creators", "outputs": [ { "name": "totalHonor", "type": "uint256" }, { "name": "lastDividendPoints", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "beingsCreated", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "battleId", "type": "uint256" } ], "name": "resolveBattle", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "", "type": "uint256" } ], "name": "refunds", "outputs": [ { "name": "", "type": "address" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "startId", "type": "uint256" } ], "name": "getAliveBeings", "outputs": [ { "name": "firstAliveId", "type": "uint256" }, { "name": "ids", "type": "uint256[]" }, { "name": "creator", "type": "address[]" }, { "name": "honor", "type": "uint256[]" }, { "name": "fighting", "type": "bool[]" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [ { "name": "uiDevAddress", "type": "address" } ], "name": "setUiDev", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [ { "name": "gameHubAddress", "type": "address" } ], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "creatorAddress", "type": "address" }, { "indexed": false, "name": "numberOfBeings", "type": "uint256" } ], "name": "StartCreation", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "creatorAddress", "type": "address" }, { "indexed": false, "name": "honor", "type": "uint256" } ], "name": "CreateBeing", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "creatorAddress", "type": "address" }, { "indexed": false, "name": "numberOfFights", "type": "uint256" } ], "name": "CreateBattle", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "winningPlayer", "type": "address" }, { "indexed": true, "name": "losingPlayer", "type": "address" }, { "indexed": false, "name": "winnerId", "type": "uint256" }, { "indexed": false, "name": "attackerId", "type": "uint256" } ], "name": "ResolveFight", "type": "event" } ]);
 	gameInstance = gameContract.at(slotsAddress);
+	
+	
+	const accounts = await promisify(cb => web3.eth.getAccounts(cb));
+	account = accounts[0];
 }
