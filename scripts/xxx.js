@@ -77,7 +77,11 @@ var content =
 	jsPanel.create({
 		theme:       'primary',
 		headerTitle: 'Fighter: ' + fighter.id,
-		position:    'center-top 0 0',
+		position: {
+			my:'center-top',
+			at:'center-top',
+			autoposition: 'down',
+			},
 		contentSize: '450 250',
 		content:     content,
 		callback: function () {
@@ -85,7 +89,7 @@ var content =
 		onbeforeclose: function () {
 			return confirm('Do you really want to close the panel?');
 		}
-	});
+	}).minimze;
 }
 
  function gameLoop(blockNumber) {
