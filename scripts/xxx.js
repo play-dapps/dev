@@ -81,12 +81,6 @@ function createWindow(container, header, content) {
 		minimizeTo: 'parentpanel',
 		theme:       'primary',
 		headerTitle: header,
-		position: {
-			my:'center-top',
-			at:'center-top',
-			autoposition: 'down',
-			},
-		contentSize: '450 250',
 		content:     content,
 		callback: function () {
 		},
