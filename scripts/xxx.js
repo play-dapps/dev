@@ -71,12 +71,12 @@ async function loadContractData() {
 		<p> Comabt Skills:</p>
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
-			`
+		`
 		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, fighterContent, 'parentpanel').minimize();
 		
 		let equippedItemIds = await contract.getEquippedItemIds(fightId);
-		for(let i = 0; i < equippedItemIds.length; i++) {
-			let itemId = equippedItemIds[i];
+		for(let j = 0; j < equippedItemIds.length; j++) {
+			let itemId = equippedItemIds[j];
 			let item = await contract.items(itemId);
 			let itemContent = 
 			`
@@ -84,7 +84,7 @@ async function loadContractData() {
 			<p> Damage: ${item.minDamage} - ${item.maxDamage}</p>
 			<p> + ${item.dodgeChance}% to dodge an Attack</p>
 			<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
-				`
+			`
 			createWindow(fighterWindow.content, 'Item: ' + item.id, itemContent, 'parentpanel').minimize();
 		}
 	}
