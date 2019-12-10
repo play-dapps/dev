@@ -30,9 +30,12 @@ window.addEventListener('load', async () => {
 let el = function(id){ return document.querySelector(id);};
 
 function start() {
+	let contractAddress = '0xA3c5D03761620c635ea9DD76e32509A0ee5eDeBE';
+	
 	let filter = {
 		fromBlock: 6940000,
-		toBlock: latest
+		toBlock: "latest",
+		address: contractAddress,
 	}
 	provider.getLogs(filter).then((result) => {
 		console.log(result);
