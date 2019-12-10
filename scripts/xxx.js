@@ -46,16 +46,20 @@ function start() {
 	provider.on(filter, (result) => {
 		console.log(result);
 	});
-	gameLoop();
 	provider.on('block', (blockNumber) => {
 		gameLoop(blockNumber);
 	});
+	
+	loadContractData();
 }
 
-function gameLoop(blockNumber) {
-	console.log(blockNumber);
+async function loadContractData() {
 	let fighters = await contract.fighters();
 	console.log(fighters);
+}
+
+ function gameLoop(blockNumber) {
+	console.log(blockNumber);
 }
 
 function setup(hubAddress, slotsAddress, p3xAddress, data) {
