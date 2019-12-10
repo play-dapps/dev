@@ -77,7 +77,7 @@ async function loadContractData() {
 
 function createWindow(parent, header, content) {
 	return jsPanel.create({
-		container: parent.content,
+		container: parent,
 		theme:       'primary',
 		headerTitle: header,
 		position: {
