@@ -56,7 +56,7 @@ function start() {
 async function loadContractData() {
 	let aliveFighterIds = await contract.getAliveFighterIds(0);
 	
-	let fightersWindow = createWindow('window', 'Fighters', '');
+	let fightersWindow = createWindow('window', 'Fighters', '', 'default');
 		
 	for(let i = 0; i < aliveFighterIds.length; i++) {
 		let fighter = await contract.fighters(aliveFighterIds[i]);
@@ -71,14 +71,14 @@ async function loadContractData() {
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 			`
-		createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, content).minimize();
+		createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, content, 'parentpanel').minimize();
 	}
 }
 
-function createWindow(container, header, content) {
+function createWindow(container, header, content, minimizeTo) {
 	return jsPanel.create({
 		container:	container,
-		minimizeTo:	'parentpanel',
+		minimizeTo:	minimizeTo,
 		theme:	'primary',
 		headerControls: {
 			close: 'remove'
