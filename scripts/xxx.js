@@ -18,17 +18,17 @@ window.addEventListener('load', async () => {
 				start();
 				break;																																																																							   											
 			default:																																																																							   										
-				alert('Switch to Ropsten to play Slots!');
+				alert('Switch to Ropsten to play!');
 			}
 			
 		} catch (error) {
 			console.log(error);
-			alert('Reload this page and enable access to use this dapp!');
+			alert('Reload this page and enable access to play!');
 		}
     }
     // Non-dapp browsers...
     else {
-        alert('Please enable MetaMask or visit this page in a Web3 browser to interact with the Game');
+        alert('Please enable MetaMask or visit this page in a Web3 browser to play');
     }
 });
 
