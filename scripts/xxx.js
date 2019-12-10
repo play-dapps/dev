@@ -63,12 +63,22 @@ async function loadContractData() {
 }
 
 function createWindow(fighter, index) {
+var content = 
+`
+<h1> Owner: ${fighter.playerAddress} </h1>
+<p> Lives: ${fighter.lives} </p>
+<p> Health:	${fighter.health} </p>
+<p> Armour: ${fighter.armour}</p>	
+<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
+<p> DodgeChance: ${fighter.dodgeChance}% to dodge an attack</p>
+<p> CriticalHit: ${fighter.criticalHitChance}% to hit for extra {fighter.criticalHitDamage}</p>
+	`
 	jsPanel.create({
 		theme:       'primary',
-		headerTitle: fighter.id,
-		position:    'center-top 0 ' + (index * 10),
+		headerTitle: 'Fighter: ' + fighter.id,
+		position:    'center-top 0 0',
 		contentSize: '450 250',
-		content:     '<p>' + fighter.lives + '</p>',
+		content:     content,
 		callback: function () {
 		},
 		onbeforeclose: function () {
