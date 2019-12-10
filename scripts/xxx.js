@@ -8,23 +8,18 @@ window.addEventListener('load', async () => {
             await ethereum.enable();
 			
 			let network = await provider.getNetwork();
-			console.log(network);
 			switch (network.name) {
 			case "ropsten":
+				start();
 				break;																																																																							   											
 			default:																																																																							   										
 				alert('Switch to Ropsten to play Slots!');
 			}
 			
-			gameLoop();
-			provider.on('block', (blockNumber) => {
-				gameLoop(blockNumber);
-			});
-			
-			} catch (error) {
-					console.log(error);
-					alert('Reload this page and enable access to use this dapp!');
-			}
+		} catch (error) {
+			console.log(error);
+			alert('Reload this page and enable access to use this dapp!');
+		}
     }
     // Non-dapp browsers...
     else {
@@ -34,7 +29,22 @@ window.addEventListener('load', async () => {
 
 let el = function(id){ return document.querySelector(id);};
 
-function gameLoop() {
+function start() {
+	let filter = {
+		fromBlock: 6940000,
+		toBlock: latest
+	}
+	provider.getLogs(filter).then((result) => {
+		console.log(result);
+	});
+	
+	gameLoop();
+	provider.on('block', (blockNumber) => {
+		gameLoop(blockNumber);
+	});
+}
+
+function gameLoop(blockNumber) {
 	console.log(blockNumber);
 }
 
