@@ -1,7 +1,10 @@
+let provider;
+let contractAddress ;
+
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-		let provider = new ethers.providers.Web3Provider(web3.currentProvider);
+		provider = new ethers.providers.Web3Provider(web3.currentProvider);
         window.web3 = new Web3(provider);
         try {
             // Request account access if needed
@@ -30,7 +33,7 @@ window.addEventListener('load', async () => {
 let el = function(id){ return document.querySelector(id);};
 
 function start() {
-	let contractAddress = '0xA3c5D03761620c635ea9DD76e32509A0ee5eDeBE';
+	contractAddress = '0xA3c5D03761620c635ea9DD76e32509A0ee5eDeBE';
 	
 	let filter = {
 		fromBlock: 6940000,
