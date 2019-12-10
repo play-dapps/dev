@@ -58,19 +58,19 @@ async function loadContractData() {
 	
 	let parent = createWindow('window', 'Fighters', '');
 		
-	let content = 
-	`
-	<h2> Owner: ${fighter.playerAddress} </h2>
-	<p> Lives: ${fighter.lives} </p>
-	<p> Health:	${fighter.health} </p>
-	<p> Armour: ${fighter.armour}</p>	
-	<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
-	<p> Comabt Skills:</p>
-	<p> ${fighter.dodgeChance}% to dodge an Attack</p>
-	<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
-		`
 	for(let i = 0; i < aliveFighterIds.length; i++) {
 		let fighter = await contract.fighters(aliveFighterIds[i]);
+		let content = 
+		`
+		<h2> Owner: ${fighter.playerAddress} </h2>
+		<p> Lives: ${fighter.lives} </p>
+		<p> Health:	${fighter.health} </p>
+		<p> Armour: ${fighter.armour}</p>	
+		<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
+		<p> Comabt Skills:</p>
+		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
+		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
+			`
 		createWindow(parent, 'Fighter: ' + fighter.id, content).minimize();
 	}
 }
