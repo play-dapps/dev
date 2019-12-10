@@ -55,28 +55,31 @@ function start() {
 
 async function loadContractData() {
 	let aliveFighterIds = await contract.getAliveFighterIds(0);
-	console.log("fighters: " + aliveFighterIds);
+	
+	let parent = createWindow('window', 'Fighters', '');
+		
+	let content = 
+	`
+	<h2> Owner: ${fighter.playerAddress} </h2>
+	<p> Lives: ${fighter.lives} </p>
+	<p> Health:	${fighter.health} </p>
+	<p> Armour: ${fighter.armour}</p>	
+	<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
+	<p> Comabt Skills:</p>
+	<p> ${fighter.dodgeChance}% to dodge an Attack</p>
+	<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
+		`
 	for(let i = 0; i < aliveFighterIds.length; i++) {
 		let fighter = await contract.fighters(aliveFighterIds[i]);
-		createWindow(fighter, i);
+		createWindow(parent, 'Fighter: ' + fighter.id, content).minimize();
 	}
 }
 
-function createWindow(fighter, index) {
-var content = 
-`
-<h2> Owner: ${fighter.playerAddress} </h2>
-<p> Lives: ${fighter.lives} </p>
-<p> Health:	${fighter.health} </p>
-<p> Armour: ${fighter.armour}</p>	
-<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
-<p> Comabt Skills:</p>
-<p> ${fighter.dodgeChance}% to dodge an Attack</p>
-<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
-	`
-	jsPanel.create({
+function createWindow(parent, header, content) {
+	return jsPanel.create({
+		container: parent.content,
 		theme:       'primary',
-		headerTitle: 'Fighter: ' + fighter.id,
+		headerTitle: header,
 		position: {
 			my:'center-top',
 			at:'center-top',
@@ -89,7 +92,7 @@ var content =
 		onbeforeclose: function () {
 			return confirm('Do you really want to close the panel?');
 		}
-	}).minimize();
+	})
 }
 
  function gameLoop(blockNumber) {
