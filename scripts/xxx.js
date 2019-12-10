@@ -66,7 +66,7 @@ function createWindow(fighter, index) {
 	jsPanel.create({
 		theme:       'primary',
 		headerTitle: fighter.id,
-		position:    'center-top 0 ' + (index * 10);
+		position:    'center-top 0 ' + (index * 10),
 		contentSize: '450 250',
 		content:     '<p>' fighter.lives'</p>',
 		callback: function () {
