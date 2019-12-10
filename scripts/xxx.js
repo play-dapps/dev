@@ -1,15 +1,15 @@
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-        window.web3  = new Web3(Web3.givenProvider);
+		let provider = new ethers.providers.Web3Provider(web3.currentProvider);
+        window.web3 = new Web3(provider);
         try {
-            // Request account access if needed
+            // Request account azccess if needed
             await ethereum.enable();
 			
-			let netId = web3.eth.net.getNetworkType()
+			let netId = web3.eth.net.getNetworkType();
 			switch (netId) {
 			case "ropsten":
-				setup('0xd23059456a54bEA0eF4549f64d703D4BEf6abfe1', '0xFdb6DB7849D34E118a9299DB91D5028A9196c58a', '0xCD45A142d109BBC8b22Ff6028614027D1dB4E32F', '000000000000000000000000Fdb6DB7849D34E118a9299DB91D5028A9196c58a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000020');
 				break;																																																																							   											
 			default:																																																																							   										
 				alert('Switch to Ropsten to play Slots!');
@@ -33,7 +33,6 @@ window.addEventListener('load', async () => {
 });
 
 let el = function(id){ return document.querySelector(id);};
-
 
 function gameLoop() {
 }
