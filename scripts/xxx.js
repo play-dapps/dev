@@ -71,13 +71,14 @@ async function loadContractData() {
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 			`
-		createWindow(fightersWindow, 'Fighter: ' + fighter.id, content).minimize();
+		createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, content).minimize();
 	}
 }
 
 function createWindow(container, header, content) {
 	return jsPanel.create({
 		container: container,
+		minimizeTo: 'parentpanel',
 		theme:       'primary',
 		headerTitle: header,
 		position: {
