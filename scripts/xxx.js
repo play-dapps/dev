@@ -59,8 +59,9 @@ async function loadContractData() {
 	let fightersWindow = createWindow('window', 'Fighters', '', 'default');
 		
 	for(let i = 0; i < aliveFighterIds.length; i++) {
-		let fighter = await contract.fighters(aliveFighterIds[i]);
-		let content = 
+		let fighterId = aliveFighterIds[i];
+		let fighter = await contract.fighters(fighterId);
+		let fighterContent = 
 		`
 		<h2> Owner: ${fighter.playerAddress} </h2>
 		<p> Lives: ${fighter.lives} </p>
@@ -71,8 +72,23 @@ async function loadContractData() {
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 			`
-		createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, content, 'parentpanel').minimize();
+		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, fighterContent, 'parentpanel').minimize();
+		
+		let equippedItemIds = await contract.getEquippedItemIds(fightId);
+		for(let i = 0; i < equippedItemIds.length; i++) {
+			let itemId = equippedItemIds[i];
+			let item = await contract.items(itemId);
+			let itemContent = 
+			`
+			<p> Armour: ${item.armour}</p>	
+			<p> Damage: ${item.minDamage} - ${item.maxDamage}</p>
+			<p> + ${item.dodgeChance}% to dodge an Attack</p>
+			<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
+				`
+			createWindow(fighterWindow.content, 'Item: ' + item.id, itemContent, 'parentpanel').minimize();
+		}
 	}
+	
 }
 
 function createWindow(container, header, content, minimizeTo) {
