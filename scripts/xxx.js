@@ -68,7 +68,7 @@ function createWindow(fighter, index) {
 		headerTitle: fighter.id,
 		position:    'center-top 0 ' + (index * 10),
 		contentSize: '450 250',
-		content:     '<p>' fighter.lives'</p>',
+		content:     '<p>' + fighter.lives + '</p>',
 		callback: function () {
 		},
 		onbeforeclose: function () {
