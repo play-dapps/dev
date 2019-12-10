@@ -1,14 +1,16 @@
+let provider;
+let contractAddress ;
+
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-		let provider = new ethers.providers.Web3Provider(web3.currentProvider);
+		provider = new ethers.providers.Web3Provider(web3.currentProvider);
         window.web3 = new Web3(provider);
         try {
             // Request account access if needed
             await ethereum.enable();
 			
 			let network = await provider.getNetwork();
-			console.log(network);
 			switch (network.name) {
 			case "ropsten":
 				start();
@@ -17,10 +19,10 @@ window.addEventListener('load', async () => {
 				alert('Switch to Ropsten to play Slots!');
 			}
 			
-			} catch (error) {
-					console.log(error);
-					alert('Reload this page and enable access to use this dapp!');
-			}
+		} catch (error) {
+			console.log(error);
+			alert('Reload this page and enable access to use this dapp!');
+		}
     }
     // Non-dapp browsers...
     else {
@@ -31,14 +33,18 @@ window.addEventListener('load', async () => {
 let el = function(id){ return document.querySelector(id);};
 
 function start() {
+	contractAddress = '0xA3c5D03761620c635ea9DD76e32509A0ee5eDeBE';
+	
 	let filter = {
-		fromBlock: 6940000,
-		toBlock: latest
+		address: contractAddress,
 	}
 	provider.getLogs(filter).then((result) => {
-		console.log(result);
+    console.log(result);
 	});
 	
+	provider.on(filter, (result) => {
+		console.log(result);
+	});
 	gameLoop();
 	provider.on('block', (blockNumber) => {
 		gameLoop(blockNumber);
