@@ -71,8 +71,8 @@ var content =
 <p> Armour: ${fighter.armour}</p>	
 <p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
 <p> Comabt Skills:</p>
-<p> ${fighter.dodgeChance}% to dodge an attack</p>
-<p> ${fighter.criticalHitChance}% to hit for extra ${fighter.criticalHitDamage}</p>
+<p> ${fighter.dodgeChance}% to dodge an Attack</p>
+<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 	`
 	jsPanel.create({
 		theme:       'primary',
