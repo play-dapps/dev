@@ -58,8 +58,23 @@ async function loadContractData() {
 	console.log("fighters: " + aliveFighterIds);
 	for(let i = 0; i < aliveFighterIds.length; i++) {
 		let fighter = await contract.fighters(aliveFighterIds[i]);
-		console.log(fighter);
+		createWindow(fighter, i);
 	}
+}
+
+function createWindow(fighter, index) {
+	jsPanel.create({
+		theme:       'primary',
+		headerTitle: fighter.id,
+		position:    'center-top 0 ' + (index * 10);
+		contentSize: '450 250',
+		content:     '<p>' fighter.lives'</p>',
+		callback: function () {
+		},
+		onbeforeclose: function () {
+			return confirm('Do you really want to close the panel?');
+		}
+	});
 }
 
  function gameLoop(blockNumber) {
