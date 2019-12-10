@@ -58,7 +58,7 @@ async function loadContractData() {
 	console.log("fighters: " + aliveFighterIds);
 	for(let i = 0; i < aliveFighterIds.length; i++) {
 		let fighter = await contract.fighters(aliveFighterIds[i]);
-		console.log(fighters);
+		console.log(fighter);
 	}
 }
 
