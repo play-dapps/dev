@@ -15,11 +15,10 @@ window.addEventListener('load', async () => {
 			default:																																																																							   										
 				alert('Switch to Ropsten to play Slots!');
 			}
-			gameLoop();
 			
-			var filter = web3.eth.filter('latest');
-			filter.watch(function(error, result){
-			  gameLoop();
+			gameLoop();
+			provider.on('block', (blockNumber) => {
+				gameLoop(blockNumber);
 			});
 			
 			} catch (error) {
@@ -36,6 +35,7 @@ window.addEventListener('load', async () => {
 let el = function(id){ return document.querySelector(id);};
 
 function gameLoop() {
+	console.log(blockNumber);
 }
 
 function setup(hubAddress, slotsAddress, p3xAddress, data) {
