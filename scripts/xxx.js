@@ -6,9 +6,9 @@ window.addEventListener('load', async () => {
             // Request account access if needed
             await ethereum.enable();
 			
-			let netId = await promisify(cb => web3.version.getNetwork(cb));
+			let netId = web3.eth.net.getNetworkType()
 			switch (netId) {
-			case "3":
+			case "ropsten":
 				setup('0xd23059456a54bEA0eF4549f64d703D4BEf6abfe1', '0xFdb6DB7849D34E118a9299DB91D5028A9196c58a', '0xCD45A142d109BBC8b22Ff6028614027D1dB4E32F', '000000000000000000000000Fdb6DB7849D34E118a9299DB91D5028A9196c58a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000020');
 				break;																																																																							   											
 			default:																																																																							   										
@@ -33,39 +33,10 @@ window.addEventListener('load', async () => {
 });
 
 let el = function(id){ return document.querySelector(id);};
-let address;
-let hubInstance;
-let slotsContract;
-let slotsInstance;
-let p3xContract;
-let p3xInstance;
-let bytes;
-let bytesOne = '0000000000000000000000000000000000000000000000000de0b6b3a7640000';
-let bytesDotFive = '00000000000000000000000000000000000000000000000006f05b59d3b20000';
 
-let txHash;
-
-let numberOfBets;
-let finished;
-let index = 0;
-let reel1;
-let reel2;
-let reel3;
-let result1;
-let result2;
-let result3;
 
 function gameLoop() {
 }
-
-const promisify = (inner) =>
-  new Promise((resolve, reject) =>
-    inner((err, res) => {
-      if (err) { reject(err) }
-
-      resolve(res);
-    })
-  );
 
 function setup(hubAddress, slotsAddress, p3xAddress, data) {
 	bytes = data;
