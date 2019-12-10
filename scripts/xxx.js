@@ -36,7 +36,7 @@ function start() {
 	contractAddress = '0xA3c5D03761620c635ea9DD76e32509A0ee5eDeBE';
 	
 	let filter = {
-		fromBlock: 6940000,
+		fromBlock: 6930000,
 		toBlock: "latest",
 		address: contractAddress,
 	}
