@@ -89,7 +89,7 @@ var content =
 		onbeforeclose: function () {
 			return confirm('Do you really want to close the panel?');
 		}
-	}).minimze();
+	}).minimize();
 }
 
  function gameLoop(blockNumber) {
