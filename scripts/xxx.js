@@ -54,7 +54,7 @@ function start() {
 }
 
 async function loadContractData() {
-	let fighters = await contract.fighters();
+	let fighters = await contract.fighters(0);
 	console.log("fighters: " + fighters);
 }
 
