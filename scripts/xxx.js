@@ -56,6 +56,10 @@ function start() {
 async function loadContractData() {
 	let aliveFighterIds = await contract.getAliveFighterIds(0);
 	console.log("fighters: " + aliveFighterIds);
+	for(let i = 0; i < aliveFighterIds.length; i++) {
+		let fighter = await contract.fighters(aliveFighterIds[i]);
+		console.log(fighters);
+	}
 }
 
  function gameLoop(blockNumber) {
