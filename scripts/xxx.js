@@ -74,7 +74,7 @@ async function loadContractData() {
 		`
 		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighter.id, fighterContent, 'parentpanel').minimize();
 		
-		let equippedItemIds = await contract.getEquippedItemIds(fightId);
+		let equippedItemIds = await contract.getEquippedItemIds(fighterId);
 		for(let j = 0; j < equippedItemIds.length; j++) {
 			let itemId = equippedItemIds[j];
 			let item = await contract.items(itemId);
