@@ -1,8 +1,7 @@
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-        window.web3  = new Web3(Web3.givenProvider || "ws://localhost:8545");
-		web3.reset();
+        window.web3  = new Web3(Web3.givenProvider);
         try {
             // Request account access if needed
             await ethereum.enable();
