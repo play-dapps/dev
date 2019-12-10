@@ -45,7 +45,7 @@ function start() {
 	});
 }
 
-function gameLoop() {
+function gameLoop(blockNumber) {
 	console.log(blockNumber);
 }
 
