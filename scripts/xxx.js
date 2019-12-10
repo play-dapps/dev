@@ -7,7 +7,7 @@ window.addEventListener('load', async () => {
             // Request account access if needed
             await ethereum.enable();
 			
-			let network = provider.getNetwork();
+			let network = await provider.getNetwork();
 			console.log(network);
 			switch (network.name) {
 			case "ropsten":
