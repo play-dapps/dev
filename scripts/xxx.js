@@ -77,16 +77,14 @@ async function loadContractData() {
 
 function createWindow(container, header, content) {
 	return jsPanel.create({
-		container: container,
-		minimizeTo: 'parentpanel',
-		theme:       'primary',
-		headerTitle: header,
-		content:     content,
-		callback: function () {
+		container:	container,
+		minimizeTo:	'parentpanel',
+		theme:	'primary',
+		headerControls: {
+			close: 'remove'
 		},
-		onbeforeclose: function () {
-			return confirm('Do you really want to close the panel?');
-		}
+		headerTitle:	header,
+		content:	content
 	})
 }
 
