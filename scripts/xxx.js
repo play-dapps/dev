@@ -55,7 +55,7 @@ function start() {
 
 async function loadContractData() {
 	let fighters = await contract.fighters();
-	console.log(fighters);
+	console.log("fighters: " + fighters);
 }
 
  function gameLoop(blockNumber) {
