@@ -4,11 +4,12 @@ window.addEventListener('load', async () => {
 		let provider = new ethers.providers.Web3Provider(web3.currentProvider);
         window.web3 = new Web3(provider);
         try {
-            // Request account azccess if needed
+            // Request account access if needed
             await ethereum.enable();
 			
-			let netId = web3.eth.net.getNetworkType();
-			switch (netId) {
+			let network = provider.getNetwork();
+			console.log(network);
+			switch (network.name) {
 			case "ropsten":
 				break;																																																																							   											
 			default:																																																																							   										
