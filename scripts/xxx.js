@@ -78,16 +78,8 @@ async function loadContractData() {
 		for(let j = 0; j < equippedItemIds.length; j++) {
 			let itemId = equippedItemIds[j];
 			let item = await contract.items(itemId);
-			let itemContent = 
-			`
-			<p> Armour: ${item.armour}</p>	
-			<p> Damage: ${item.minDamage} - ${item.maxDamage}</p>
-			<p> + ${item.dodgeChance}% to dodge an Attack</p>
-			<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
-			`
-			createWindow(fighterWindow.content, 'Item: ' + itemId, itemContent, false).dock({
-				master: fighterWindow
-			});
+			
+			createItemWindow(item, fighterWindow);
 		}
 	}
 	
@@ -104,6 +96,27 @@ function createWindow(container, header, content, minimizeTo) {
 		headerTitle:	header,
 		content:	content
 	})
+}
+
+function createItemWindow(fighterWindow) {
+	let content = 
+		`
+		<p> + ${item.armour} Armour</p>	
+		<p> + ${item.minDamage} - ${item.maxDamage} Damage</p>
+		<p> + ${item.dodgeChance}% to dodge an Attack</p>
+		<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
+		`
+	
+	jsPanel.create({
+		theme: 'default',
+		headerTitle: 'slaveRight',
+		content:	content,
+	}).dock({
+		master: fighterWindow,
+		position: {offsetX:5},
+		linkSlaveHeight: false,
+		linkSlaveWidth: false
+	});
 }
 
 function dock(master, slave) {
