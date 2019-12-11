@@ -98,7 +98,7 @@ function createWindow(container, header, content, minimizeTo) {
 	})
 }
 
-function createItemWindow(fighterWindow) {
+function createItemWindow(item, fighterWindow) {
 	let content = 
 		`
 		<p> + ${item.armour} Armour</p>	
