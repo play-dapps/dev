@@ -72,7 +72,7 @@ async function loadContractData() {
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 		`
-		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighterId, fighterContent, 'parentpanel').minimize();
+		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighterId, fighterContent, 'parentpanel');
 		
 		let equippedItemIds = await contract.getEquippedItemIds(fighterId);
 		for(let j = 0; j < equippedItemIds.length; j++) {
