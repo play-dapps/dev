@@ -79,7 +79,7 @@ async function loadContractData() {
 			let itemId = equippedItemIds[j];
 			let item = await contract.items(itemId);
 			
-			createItemWindow(item, fighterWindow);
+			createItemWindow(fightersWindow.content, item, itemId, fighterWindow);
 		}
 	}
 	
@@ -89,7 +89,6 @@ function createWindow(container, header, content, minimizeTo) {
 	return jsPanel.create({
 		container:	container,
 		minimizeTo:	minimizeTo,
-		theme:	'primary',
 		headerControls: {
 			close: 'remove'
 		},
@@ -98,7 +97,7 @@ function createWindow(container, header, content, minimizeTo) {
 	})
 }
 
-function createItemWindow(item, fighterWindow) {
+function createItemWindow(container, item, itemId, fighterWindow) {
 	let content = 
 		`
 		<p> + ${item.armour} Armour</p>	
@@ -108,8 +107,8 @@ function createItemWindow(item, fighterWindow) {
 		`
 	
 	jsPanel.create({
-		theme: 'default',
-		headerTitle: 'slaveRight',
+		container:	container,
+		headerTitle:	itemId,
 		content:	content,
 	}).dock({
 		master: fighterWindow,
