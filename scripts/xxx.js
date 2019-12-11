@@ -85,7 +85,7 @@ async function loadContractData() {
 			<p> + ${item.dodgeChance}% to dodge an Attack</p>
 			<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
 			`
-			dock(fighterWindow, createWindow(fighterWindow.content, 'Item: ' + itemId, itemContent, 'parentpanel'));
+			dock(fighterWindow, createWindow(fighterWindow.content, 'Item: ' + itemId, itemContent, false));
 		}
 	}
 	
