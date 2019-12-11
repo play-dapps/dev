@@ -85,7 +85,7 @@ async function loadContractData() {
 			<p> + ${item.dodgeChance}% to dodge an Attack</p>
 			<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
 			`
-			createWindow(fighterWindow.content, 'Item: ' + itemId, itemContent, 'parentpanel').minimize();
+			dock(createWindow(fighterWindow.content, 'Item: ' + itemId, itemContent, 'parentpanel'));
 		}
 	}
 	
@@ -102,6 +102,15 @@ function createWindow(container, header, content, minimizeTo) {
 		headerTitle:	header,
 		content:	content
 	})
+}
+
+function dock(master, slave) {
+	slave.dock({
+    master: master,
+    position: {offsetX:5},
+    linkSlaveHeight: false,
+    linkSlaveWidth: false
+});
 }
 
  function gameLoop(blockNumber) {
