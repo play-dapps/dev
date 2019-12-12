@@ -136,6 +136,7 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 			close: 'remove'
 		},
 		content:	content,
+		contentSize: 'auto auto',
 	}).dock({
 		master: fighterWindow,
 		position: position,
