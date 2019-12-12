@@ -110,16 +110,22 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 	switch(item.itemType) {
 		case 0:
 			position = 'left-top';
+			break;
 		case 1:
 			position = 'left-bottom';
+			break;
 		case 2:
 			position = 'right-top';
+			break;
 		case 3:
 			position = 'right-center';
+			break;
 		case 4:
 			position = 'right-center';
+			break;
 		case 5:
 			position = 'right-bottom';
+			break;
 	}
 	
 	jsPanel.create({
