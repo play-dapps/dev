@@ -93,7 +93,8 @@ function createWindow(container, header, content, minimizeTo) {
 			close: 'remove'
 		},
 		headerTitle:	header,
-		content:	content
+		content:	content,
+		contentSize: '500 300'
 	})
 }
 
