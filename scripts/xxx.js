@@ -68,7 +68,7 @@ async function loadContractData() {
 		<p> Health:	${fighter.health} </p>
 		<p> Armour: ${fighter.armour}</p>	
 		<p> Damage: ${fighter.minDamage} - ${fighter.maxDamage}</p>
-		<p> Comabt Skills:</p>
+		<p> Combat Skills:</p>
 		<p> ${fighter.dodgeChance}% to dodge an Attack</p>
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 		`
@@ -106,13 +106,29 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 		${item.criticalHitChance != 0 ? `<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>`: '' }
 		`
   
+	let position = ((item.itemType) => {
+	switch(item.itemType) {
+		case 0:
+			return 'left-top';
+		case 1:
+			return 'left-bottom';
+		case 2:
+			return 'right-top';
+		case 3:
+			return 'right-center';
+		case 4:
+			return 'right-center';
+		case 5:
+			return 'right-bottom';
+}});
+	
 	jsPanel.create({
 		container:	container,
 		headerTitle:	'Item: ' + itemId,
 		content:	content,
 	}).dock({
 		master: fighterWindow,
-		position: {offsetX:5},
+		position: position,
 		linkSlaveHeight: false,
 		linkSlaveWidth: false
 	});
