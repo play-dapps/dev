@@ -110,10 +110,10 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 	let position;
 	switch(item.itemType) {
 		case 0:
-			position = 'left-top';
+			position  = {my:'right-top', at:'left-top', offsetX:-5};
 			break;
 		case 1:
-			position = 'left-bottom';
+			position  = {my:'right-top', at:'left-bottom', offsetX:-5};
 			break;
 		case 2:
 			position = 'right-top';
