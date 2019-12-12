@@ -106,21 +106,21 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 		${item.criticalHitChance != 0 ? `<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>`: '' }
 		`
   
-	let position = ((item.itemType) => {
+	let position;
 	switch(item.itemType) {
 		case 0:
-			return 'left-top';
+			position = 'left-top';
 		case 1:
-			return 'left-bottom';
+			position = 'left-bottom';
 		case 2:
-			return 'right-top';
+			position = 'right-top';
 		case 3:
-			return 'right-center';
+			position = 'right-center';
 		case 4:
-			return 'right-center';
+			position = 'right-center';
 		case 5:
-			return 'right-bottom';
-}});
+			position = 'right-bottom';
+	}
 	
 	jsPanel.create({
 		container:	container,
