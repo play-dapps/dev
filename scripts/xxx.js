@@ -73,7 +73,7 @@ async function loadContractData() {
 		<p> ${fighter.criticalHitChance}% to hit for ${fighter.criticalHitDamage} extra Damage</p>
 		`
 		let fighterWindow = createWindow(fightersWindow.content, 'Fighter: ' + fighterId, fighterContent, 'parentpanel');
-		
+  
 		let equippedItemIds = await contract.getEquippedItemIds(fighterId);
 		for(let j = 0; j < equippedItemIds.length; j++) {
 			let itemId = equippedItemIds[j];
@@ -100,12 +100,12 @@ function createWindow(container, header, content, minimizeTo) {
 function createItemWindow(container, item, itemId, fighterWindow) {
 	let content = 
 		`
-		<p> + ${item.armour} Armour</p>	
-		<p> + ${item.minDamage} - ${item.maxDamage} Damage</p>
-		<p> + ${item.dodgeChance}% to dodge an Attack</p>
-		<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>
+		${item.armour ? `<p> + ${item.armour} Armour</p>`: '' }
+		${item.minDamage ? `<p> + ${item.minDamage} - ${item.maxDamage} Damage</p>`: '' }
+		${item.dodgeChance ? `<p> + ${item.dodgeChance}% to dodge an Attack</p>`: '' }
+		${item.criticalHitChance ? `<p> + ${item.criticalHitChance}% to hit for ${item.criticalHitDamage} extra Damage</p>`: '' }
 		`
-	
+  
 	jsPanel.create({
 		container:	container,
 		headerTitle:	'Item: ' + itemId,
