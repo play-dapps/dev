@@ -113,7 +113,7 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 			position  = {my:'right-top', at:'left-top', offsetX:-5};
 			break;
 		case 1:
-			position  = {my:'right-top', at:'left-bottom', offsetX:-5};
+			position  = {my:'right-bottom', at:'left-bottom', offsetX:-5};
 			break;
 		case 2:
 			position = 'right-top';
