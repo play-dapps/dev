@@ -132,6 +132,9 @@ function createItemWindow(container, item, itemId, fighterWindow) {
 	jsPanel.create({
 		container:	container,
 		headerTitle:	'Item: ' + itemId,
+		headerControls: {
+			close: 'remove'
+		},
 		content:	content,
 	}).dock({
 		master: fighterWindow,
