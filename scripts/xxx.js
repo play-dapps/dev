@@ -124,11 +124,13 @@ async function loadFighterData() {
 		for(let j = 0; j < items[0].length; j++) {
 			let content = 
 			`
-			${items.armour[j] != 0 ? `<p> + ${items.armour[j]} Armour</p>`: '' }
-			${items.minDamage[j] != 0 || items.maxDamage[j] != 0 ? `<p> + ${items.minDamage[j]} - ${items.maxDamage[j]} Damage</p>`: '' }
-			${items.dodgeChance[j] != 0 ? `<p> + ${items.dodgeChance[j]}% Dodge Chance</p>`: '' }
-			${items.criticalHitChance[j] != 0 ? `<p> + ${items.criticalHitChance[j]}% Criticial Hit Chance</p>`: '' }
-			${items.criticalHitDamage[j] != 0 ? `<p> + ${items.criticalHitDamage[j]} Criticial Hit Damage</p>`: '' }
+			<p><b>${itemTypeToName(items.itemType[j])}</b></br>
+			${items.armour[j] != 0 ? `+ ${items.armour[j]} Armour</br>`: '' }
+			${items.minDamage[j] != 0 || items.maxDamage[j] != 0 ? `+ ${items.minDamage[j]} - ${items.maxDamage[j]} Damage</br>`: '' }
+			${items.dodgeChance[j] != 0 ? `+ ${items.dodgeChance[j]}% Dodge Chance</br>`: '' }
+			${items.criticalHitChance[j] != 0 ? `+ ${items.criticalHitChance[j]}% Criticial Hit Chance</br>`: '' }
+			${items.criticalHitDamage[j] != 0 ? `+ ${items.criticalHitDamage[j]} Criticial Hit Damage</br>`: '' }
+			</p>
 			`
   
 			let position;
@@ -255,6 +257,23 @@ function setAttacker(fighterId) {
 
 function attack(defenderId) {
 	contract.startFight(attackerId, defenderId);
+}
+
+function itemTypeToName(itemType) {
+	switch(itemType) {
+		case 0:
+			return 'Weapon';
+		case 1:
+			return 'Shield';
+		case 2:
+			return 'Amulet';
+		case 3:
+			return 'Helmet';
+		case 4:
+			return 'Chestplate';
+		case 5:
+			return 'Leggins'
+	}
 }
 
 function createWindow(header) {
