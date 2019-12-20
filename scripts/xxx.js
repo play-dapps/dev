@@ -269,6 +269,9 @@ function createWindow(header) {
 		resizeit: {
 			containment: 0
 		},
+		dragit: {
+			containment: 0
+		}
 	})
 }
 
@@ -286,7 +289,7 @@ function createFighterWindow(container, header, content, minimizeTo) {
 		contentSize: '300 auto',
 		setStatus: 'minimized',
 		dragit: {
-			containment: 10
+			containment: 0
 		},
 		resizeit: false,
 	})
@@ -303,7 +306,8 @@ function createFightHistoryWindow(container, header, minimizeTo) {
 		},
 		headerTitle:	header,
 		dragit: {
-			containment: 10
+			containment: 0
 		},
+		resizeit: false,
 	})
 }
