@@ -83,7 +83,7 @@ function loadRules() {
 async function loadFighterData() {
 	let aliveFighterIds = await contract.getAliveFighterIds(0);
 	let myFightersWindow = createWindow('My Fighters');
-	attach('window', myFightersWindow, {my:'center-top', at:'center-bottom', offsetY:5}, `<button type="button" class="btn btn-primary" onclick="recruitFighter()">Recruit Fighter</button>`);
+	attach('window', myFightersWindow, {my:'center-top', at:'center-bottom', offsetY:5}, `<button type="button" class="btn btn-primary btn-lg" onclick="recruitFighter()">Recruit Fighter</button>`);
 	
 	let fightersWindow = createWindow('Enemies');
 		
@@ -117,7 +117,7 @@ async function loadFighterData() {
 		} else {
 			parentContainer = fightersWindow.content;
 			fighterWindow = createFighterWindow(parentContainer, header , fighterContent, 'parentpanel');
-			attach(parentContainer, fighterWindow, {my:'center-top', at:'center-bottom', offsetY:5}, `<button type="button" class="btn btn-danger" onclick="attack(${fighterId})">Attack</button>`);
+			attach(parentContainer, fighterWindow, {my:'center-top', at:'center-bottom', offsetY:5}, `<button type="button" class="btn btn-danger btn-lg" onclick="attack(${fighterId})">Attack</button>`);
 		}
   
 		let items = await contract.getEquippedItems(fighterId);
